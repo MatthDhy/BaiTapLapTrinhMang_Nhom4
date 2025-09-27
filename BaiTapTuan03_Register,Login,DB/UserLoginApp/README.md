@@ -38,7 +38,7 @@
 ## Phân công việc
 Đinh Võ Gia Huy: Setup repo + DatabaseHelper + User.cs + SQL script
 
-Member 1: LoginForm UI + logic gọi DB
+Cao Phan Đức Huy: LoginForm UI + logic gọi DB
 
 Member 2: RegisterForm UI + logic gọi DB
 
