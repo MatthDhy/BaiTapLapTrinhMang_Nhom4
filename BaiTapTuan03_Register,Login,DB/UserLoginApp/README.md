@@ -42,6 +42,6 @@ Member 1: LoginForm UI + logic gọi DB
 
 Member 2: RegisterForm UI + logic gọi DB
 
-Member 3: Security.cs (SHA-256) + MainForm
+Nguyễn Hoàng Phú: Security.cs (SHA-256) + MainForm
 
 Member 4: Validation + Error handling
