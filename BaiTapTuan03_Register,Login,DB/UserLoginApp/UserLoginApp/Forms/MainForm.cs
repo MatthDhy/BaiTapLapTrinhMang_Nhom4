@@ -21,5 +21,10 @@ namespace UserLoginApp.Forms
             currentUser = user;
             // TODO: Hiển thị thông tin user
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
