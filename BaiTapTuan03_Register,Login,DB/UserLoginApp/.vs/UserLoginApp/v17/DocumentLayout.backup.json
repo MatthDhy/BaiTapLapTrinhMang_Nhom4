@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|d:\\hk3\\ltmang\\baitaplaptrinhmang_nhom4\\baitaptuan03_register,login,db\\userloginapp\\userloginapp\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|solutionrelative:userloginapp\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\userloginapp\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|solutionrelative:userloginapp\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|d:\\hk3\\ltmang\\baitaplaptrinhmang_nhom4\\baitaptuan03_register,login,db\\userloginapp\\userloginapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|solutionrelative:userloginapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|d:\\hk3\\ltmang\\baitaplaptrinhmang_nhom4\\baitaptuan03_register,login,db\\userloginapp\\userloginapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|solutionrelative:userloginapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|d:\\hk3\\ltmang\\baitaplaptrinhmang_nhom4\\baitaptuan03_register,login,db\\userloginapp\\userloginapp\\helpers\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|solutionrelative:userloginapp\\helpers\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\userloginapp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA8C2EC-0819-4364-BB64-36E2C0D2D3C4}|UserLoginApp\\UserLoginApp.csproj|solutionrelative:userloginapp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +30,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Forms\\LoginForm.cs",
+              "RelativeDocumentMoniker": "UserLoginApp\\Forms\\LoginForm.cs",
+              "ToolTip": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Forms\\LoginForm.cs*",
+              "RelativeToolTip": "UserLoginApp\\Forms\\LoginForm.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T05:42:23.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "UserLoginApp\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "UserLoginApp\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAxwDYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T03:54:38.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Program.cs",
               "RelativeDocumentMoniker": "UserLoginApp\\Program.cs",
-              "ToolTip": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Program.cs",
-              "RelativeToolTip": "UserLoginApp\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAApAAAAAAAAAA==",
+              "ToolTip": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Program.cs*",
+              "RelativeToolTip": "UserLoginApp\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-27T03:52:17.384Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Form1.cs",
-              "RelativeDocumentMoniker": "UserLoginApp\\Form1.cs",
-              "ToolTip": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Form1.cs [Design]",
-              "RelativeToolTip": "UserLoginApp\\Form1.cs [Design]",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Models\\User.cs",
+              "RelativeDocumentMoniker": "UserLoginApp\\Models\\User.cs",
+              "ToolTip": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Models\\User.cs",
+              "RelativeToolTip": "UserLoginApp\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T03:52:04.919Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-27T05:36:33.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Helpers\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "UserLoginApp\\Helpers\\DatabaseHelper.cs",
+              "ToolTip": "D:\\HK3\\LTMang\\BaiTapLapTrinhMang_Nhom4\\BaiTapTuan03_Register,Login,DB\\UserLoginApp\\UserLoginApp\\Helpers\\DatabaseHelper.cs",
+              "RelativeToolTip": "UserLoginApp\\Helpers\\DatabaseHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T05:21:21.101Z",
+              "EditorCaption": ""
             }
           ]
         }

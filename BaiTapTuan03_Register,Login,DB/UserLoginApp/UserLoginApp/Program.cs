@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserLoginApp.Helpers;
 
 namespace UserLoginApp
 {
@@ -11,12 +13,18 @@ namespace UserLoginApp
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.LoginForm());
+
+            string connStr = ConfigurationManager.ConnectionStrings["CaroAppDB"].ConnectionString;
+            var db = new DatabaseHelper(connStr);
+
+            Application.Run(new Forms.LoginForm(db));
         }
     }
 }

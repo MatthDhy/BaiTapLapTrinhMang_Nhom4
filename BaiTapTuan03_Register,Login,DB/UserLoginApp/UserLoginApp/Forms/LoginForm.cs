@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserLoginApp.Helpers;
+using UserLoginApp.Repositories;
+using System.Configuration;
 
 namespace UserLoginApp.Forms
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        private readonly DatabaseHelper _db;
+        private readonly UserRepository _repo;
+        public LoginForm(DatabaseHelper db)
         {
             InitializeComponent();
+            _db = db;
+            _repo = new UserRepository(_db);
         }
 
         private void btnLogin_Click(object sender, System.EventArgs e)
@@ -26,5 +33,7 @@ namespace UserLoginApp.Forms
         {
             // TODO: Mở form đăng ký
         }
+
+        
     }
 }
