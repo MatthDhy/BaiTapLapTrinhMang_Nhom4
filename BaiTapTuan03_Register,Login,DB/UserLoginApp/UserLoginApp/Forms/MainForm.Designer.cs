@@ -71,7 +71,7 @@
             this.lbWelcome.Name = "lbWelcome";
             this.lbWelcome.Size = new System.Drawing.Size(400, 40);
             this.lbWelcome.TabIndex = 3;
-            this.lbWelcome.Text = "Xin chào, ";
+            this.lbWelcome.Text = "Xin chào,";
             // 
             // btnLogOut
             // 
