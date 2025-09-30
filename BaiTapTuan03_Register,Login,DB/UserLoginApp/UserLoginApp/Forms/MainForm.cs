@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserLoginApp.Helpers;
 using UserLoginApp.Models;
 
 namespace UserLoginApp.Forms
@@ -14,12 +15,37 @@ namespace UserLoginApp.Forms
     public partial class MainForm : Form
     {
         private User currentUser;
+        private DatabaseHelper db;
 
-        public MainForm(User user)
+        public MainForm(User user, DatabaseHelper db)
         {
             InitializeComponent();
-            currentUser = user;
+            this.currentUser = user;
+            this.db = db;
             // TODO: Hiển thị thông tin user
         }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (currentUser != null)
+            {
+                lbWelcome.Text = "Xin chào, " + this.currentUser.Username;
+                lbUsername.Text = "Tên đăng nhập: " + this.currentUser.Username;
+                lbEmail.Text = "Email: " + this.currentUser.Email;
+            }
+            grUserInfo.Text = "Thông tin đăng nhập";
+            btnLogOut.Text = "Đăng xuất";
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (var loginForm = new LoginForm(db))
+            {
+                loginForm.ShowDialog();
+            }
+            this.Close();
+        }
+
+
     }
 }
