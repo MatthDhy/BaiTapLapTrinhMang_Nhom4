@@ -23,7 +23,6 @@ namespace UserLoginApp.Forms
             InitializeComponent();
             this.currentUser = user;
             this.db = db;
-            // TODO: Hiển thị thông tin user
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -45,24 +44,6 @@ namespace UserLoginApp.Forms
                 loginForm.ShowDialog();
             }
             this.Close();
-        }
-        public static class SecurityHelper
-        {
-            public static string HashPassword(string password)
-            {
-                using (SHA256 sha256 = SHA256.Create())
-                {
-                    byte[] bytes = Encoding.UTF8.GetBytes(password);
-                    byte[] hash = sha256.ComputeHash(bytes);
-
-                    StringBuilder sb = new StringBuilder();
-                    foreach (var b in hash)
-                    {
-                        sb.Append(b.ToString("x2"));
-                    }
-                    return sb.ToString();
-                }
-            }
         }
 
     }
