@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +23,6 @@ namespace UserLoginApp.Forms
             InitializeComponent();
             this.currentUser = user;
             this.db = db;
-            // TODO: Hiển thị thông tin user
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -45,7 +45,6 @@ namespace UserLoginApp.Forms
             }
             this.Close();
         }
-
 
     }
 }
