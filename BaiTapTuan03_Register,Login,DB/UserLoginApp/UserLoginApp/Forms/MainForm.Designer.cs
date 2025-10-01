@@ -1,4 +1,6 @@
-﻿namespace UserLoginApp.Forms
+﻿using System;
+
+namespace UserLoginApp.Forms
 {
     partial class MainForm
     {
@@ -6,6 +8,8 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+
+        public EventHandler MainForm_Load { get; private set; }
 
         /// <summary>
         /// Clean up any resources being used.

@@ -1,7 +1,0 @@
-D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.csproj.AssemblyReference.cache
-D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.Forms.LoginForm.resources
-D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.Forms.MainForm.resources
-D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.Forms.RegisterForm.resources
-D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.Properties.Resources.resources
-D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.csproj.GenerateResource.cache
-D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.csproj.CoreCompileInputs.cache
