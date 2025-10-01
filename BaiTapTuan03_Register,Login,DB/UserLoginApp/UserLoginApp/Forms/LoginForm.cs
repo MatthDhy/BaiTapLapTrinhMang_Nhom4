@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -8,32 +9,51 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserLoginApp.Helpers;
+using UserLoginApp.Models;
 using UserLoginApp.Repositories;
-using System.Configuration;
 
 namespace UserLoginApp.Forms
 {
     public partial class LoginForm : Form
     {
-        private readonly DatabaseHelper _db;
-        private readonly UserRepository _repo;
-        public LoginForm(DatabaseHelper db)
+        private DatabaseHelper db;
+
+        public LoginForm()
         {
             InitializeComponent();
-            _db = db;
-            _repo = new UserRepository(_db);
+            db = new DatabaseHelper();
         }
 
-        private void btnLogin_Click(object sender, System.EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            // TODO: Xử lý login
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text;
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+
+            User loggedUser = db.Login(username, password);
+
+            if (loggedUser != null)
+            {
+                MessageBox.Show("Đăng nhập thành công!");
+                MainForm main = new MainForm(loggedUser, db);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+            }
         }
 
-        private void btnRegister_Click(object sender, System.EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
-            // TODO: Mở form đăng ký
+            RegisterForm reg = new RegisterForm();
+            reg.Show();
         }
-
-        
     }
 }
