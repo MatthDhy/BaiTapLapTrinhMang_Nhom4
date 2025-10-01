@@ -9,7 +9,7 @@ namespace UserLoginApp.Forms
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        public EventHandler MainForm_Load { get; private set; }
+      
 
         /// <summary>
         /// Clean up any resources being used.
@@ -52,6 +52,7 @@ namespace UserLoginApp.Forms
             this.grUserInfo.TabIndex = 4;
             this.grUserInfo.TabStop = false;
             this.grUserInfo.Text = "Thông tin đăng nhập";
+            this.grUserInfo.Enter += new System.EventHandler(this.grUserInfo_Enter);
             // 
             // lbEmail
             // 

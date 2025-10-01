@@ -35,6 +35,7 @@
             this.lblTitle.Size = new System.Drawing.Size(342, 81);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Đăng nhập";
+            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // txtUsername
             // 
@@ -121,6 +122,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

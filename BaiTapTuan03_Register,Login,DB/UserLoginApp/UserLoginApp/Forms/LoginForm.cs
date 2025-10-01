@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserLoginApp.Helpers;
 using UserLoginApp.Models;
+using UserLoginApp.Utils;
 using UserLoginApp.Repositories;
 
 namespace UserLoginApp.Forms
@@ -35,7 +36,10 @@ namespace UserLoginApp.Forms
                 return;
             }
 
-            User loggedUser = db.Login(username, password);
+            // Hash password trước khi truyền vào DB
+            string hashedPassword = Security.HashPassword(password);
+
+            User loggedUser = db.Login(username, hashedPassword);
 
             if (loggedUser != null)
             {
@@ -54,6 +58,16 @@ namespace UserLoginApp.Forms
         {
             RegisterForm reg = new RegisterForm();
             reg.Show();
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

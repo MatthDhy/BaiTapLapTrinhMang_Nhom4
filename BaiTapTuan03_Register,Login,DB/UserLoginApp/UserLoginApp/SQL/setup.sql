@@ -15,14 +15,14 @@ CREATE TABLE USERS
 (
 	UserID INT IDENTITY(1,1) PRIMARY KEY,   
     Username NVARCHAR(50) NOT NULL UNIQUE,  
-    PasswordHash NVARCHAR(255) NOT NULL,    
+    Password NVARCHAR(255) NOT NULL,    
     Email NVARCHAR(100) NULL,               
     CreatedAt DATETIME DEFAULT GETDATE()
 );
 GO
 
-INSERT INTO USERS (Username, PasswordHash, Email)
-VALUES (N'Huy', N'savdsjfwoik', N'1234@gmail.com');
+INSERT INTO USERS (Username, Password, Email)
+VALUES (N'Huy', N'8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', N'1234@gmail.com');
 GO
 
 SELECT * FROM USERS;

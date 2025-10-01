@@ -39,12 +39,16 @@ namespace UserLoginApp.Forms
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            using (var loginForm = new LoginForm(db))
+            using (var loginForm = new LoginForm())
             {
                 loginForm.ShowDialog();
             }
             this.Close();
         }
 
+        private void grUserInfo_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace UserLoginApp
             string connStr = ConfigurationManager.ConnectionStrings["CaroAppDB"].ConnectionString;
             var db = new DatabaseHelper(connStr);
 
-            Application.Run(new Forms.LoginForm(db));
+            Application.Run(new Forms.LoginForm());
         }
     }
 }

@@ -5,3 +5,8 @@ D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginA
 D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.Properties.Resources.resources
 D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.csproj.GenerateResource.cache
 D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.csproj.CoreCompileInputs.cache
+D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\bin\Debug\UserLoginApp.exe.config
+D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\bin\Debug\UserLoginApp.exe
+D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\bin\Debug\UserLoginApp.pdb
+D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.exe
+D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.pdb

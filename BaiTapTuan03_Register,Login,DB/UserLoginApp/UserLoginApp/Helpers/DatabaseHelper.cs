@@ -8,19 +8,7 @@ namespace UserLoginApp.Helpers
 {
     public class DatabaseHelper
     {
-        public User Login(string username, string password)
-        {
-            // TODO: thay bằng kết nối SQL sau
-            if (username == "admin" && password == "123")
-            {
-                return new User
-                {
-                    Username = username,
-                    Email = "admin@example.com"
-                };
-            }
-            return null;
-        }
+        
         private readonly string _connStr;
 
         public DatabaseHelper(string connectionString = null)
