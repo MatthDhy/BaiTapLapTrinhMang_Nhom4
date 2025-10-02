@@ -86,7 +86,7 @@ namespace UserLoginApp.Helpers
                 string sqlInsert = "INSERT INTO Users (Username, Password, Email) VALUES (@Username, @Password, @Email)";
                 int rows = ExecuteNonQuery(sqlInsert,
                     new SqlParameter("@Username", user.Username),
-                    new SqlParameter("@Password", user.PasswordHash), // đã hash
+                    new SqlParameter("@Password", user.Password), // đã hash
                     new SqlParameter("@Email", user.Email));
 
                 if (rows > 0)
@@ -124,9 +124,10 @@ namespace UserLoginApp.Helpers
                         UserID = Convert.ToInt32(dt.Rows[0]["UserId"]),
                         Username = dt.Rows[0]["Username"].ToString(),
                         Email = dt.Rows[0]["Email"].ToString(),
-                        PasswordHash = hashedPassword
+                        Password = hashedPassword
                     };
                 }
+
 
                 return null;
             }

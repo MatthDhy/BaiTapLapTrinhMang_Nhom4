@@ -17,10 +17,10 @@ namespace UserLoginApp.Repositories
 
         public int AddUser(User u)
         {
-            string sql = "INSERT INTO Users (Username, PasswordHash, Email) VALUES (@u,@p,@e); SELECT SCOPE_IDENTITY();";
+            string sql = "INSERT INTO Users (Username, Password, Email) VALUES (@u,@p,@e); SELECT SCOPE_IDENTITY();";
             object idObj = _db.ExecuteScalar(sql,
                 new SqlParameter("@u", u.Username),
-                new SqlParameter("@p", u.PasswordHash),
+                new SqlParameter("@p", u.Password),
                 new SqlParameter("@e", string.IsNullOrEmpty(u.Email) ? (object)DBNull.Value : u.Email)
             );
             return Convert.ToInt32(idObj);
@@ -28,7 +28,7 @@ namespace UserLoginApp.Repositories
 
         public bool CheckLogin(string username, string passwordHash)
         {
-            string sql = "SELECT COUNT(1) FROM Users WHERE Username=@u AND PasswordHash=@p";
+            string sql = "SELECT COUNT(1) FROM Users WHERE Username=@u AND Password=@p";
             object obj = _db.ExecuteScalar(sql,
                 new SqlParameter("@u", username),
                 new SqlParameter("@p", passwordHash)
@@ -46,10 +46,11 @@ namespace UserLoginApp.Repositories
             {
                 UserID = Convert.ToInt32(r["UserID"]),
                 Username = r["Username"].ToString() ?? "",
-                PasswordHash = r["PasswordHash"].ToString() ?? "",
+                Password = r["Password"].ToString() ?? "",
                 Email = r["Email"]?.ToString() ?? "",
                 CreatedAt = Convert.ToDateTime(r["CreatedAt"])
             };
+
         }
     }
 }

@@ -57,7 +57,7 @@ namespace UserLoginApp.Forms
             User newUser = new User
             {
                 Username = username,
-                PasswordHash = Security.HashPassword(password), // hash trước khi lưu
+                Password = Security.HashPassword(password), // hash trước khi lưu
                 Email = email
             };
 
