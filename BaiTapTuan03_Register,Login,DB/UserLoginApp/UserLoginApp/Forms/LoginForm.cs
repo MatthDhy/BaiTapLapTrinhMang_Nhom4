@@ -65,9 +65,59 @@ namespace UserLoginApp.Forms
 
         }
 
+        private void TxtUsername_Enter(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "Tên đăng nhập")
+            {
+                txtUsername.Text = "";
+                txtUsername.ForeColor = Color.Black;
+            }
+        }
+
+        private void TxtUsername_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                txtUsername.Text = "Tên đăng nhập";
+                txtUsername.ForeColor = Color.Gray;
+            }
+        }
+
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            txtUsername.Text = "Tên đăng nhập";
+            txtUsername.ForeColor = Color.Gray;
 
+            txtPassword.Text = "Mật khẩu";
+            txtPassword.ForeColor = Color.Gray;
+            txtPassword.UseSystemPasswordChar = false;
+
+            txtUsername.Enter += TxtUsername_Enter;
+            txtUsername.Leave += TxtUsername_Leave;
+
+            txtPassword.Enter += TxtPassword_Enter;
+            txtPassword.Leave += TxtPassword_Leave;
+            this.ActiveControl = lblTitle;
+
+        }
+        private void TxtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "Mật khẩu")
+            {
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.Black;
+                txtPassword.UseSystemPasswordChar = true; // ẩn mật khẩu khi gõ
+            }
+        }
+
+        private void TxtPassword_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                txtPassword.UseSystemPasswordChar = false;
+                txtPassword.Text = "Mật khẩu";
+                txtPassword.ForeColor = Color.Gray;
+            }
         }
     }
 }

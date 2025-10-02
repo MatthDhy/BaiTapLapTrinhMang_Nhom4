@@ -125,9 +125,9 @@
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(200, 250);
+            this.btnRegister.Location = new System.Drawing.Point(178, 250);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(100, 30);
+            this.btnRegister.Size = new System.Drawing.Size(128, 38);
             this.btnRegister.TabIndex = 8;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;

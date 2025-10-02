@@ -53,9 +53,8 @@
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(165, 190);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(472, 54);
+            this.txtPassword.Size = new System.Drawing.Size(472, 39);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "Mật khẩu";
             // 

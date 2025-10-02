@@ -85,9 +85,9 @@ namespace UserLoginApp.Forms
             this.btnLogOut.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(330, 330);
+            this.btnLogOut.Location = new System.Drawing.Point(298, 330);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(140, 40);
+            this.btnLogOut.Size = new System.Drawing.Size(172, 40);
             this.btnLogOut.TabIndex = 5;
             this.btnLogOut.Text = "Đăng xuất";
             this.btnLogOut.UseVisualStyleBackColor = false;
@@ -104,6 +104,7 @@ namespace UserLoginApp.Forms
             this.Controls.Add(this.btnLogOut);
             this.Name = "MainForm";
             this.Text = "Trang chủ";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.grUserInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
