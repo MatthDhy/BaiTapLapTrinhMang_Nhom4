@@ -1,11 +1,11 @@
 ﻿-- Tạo database nếu chưa có
-IF DB_ID('UserLoginApp') IS NULL
+IF DB_ID('UserManageApp') IS NULL
 BEGIN
-    CREATE DATABASE UserLoginApp;
+    CREATE DATABASE UserManageApp;
 END
 GO
 
-USE UserLoginApp;
+USE UserManageApp;
 GO
 
 -- Tạo bảng Users nếu chưa có
@@ -17,7 +17,8 @@ BEGIN
         Username NVARCHAR(50) NOT NULL UNIQUE,
         Password NVARCHAR(255) NOT NULL,
         Email NVARCHAR(100) NULL,
-        CreatedAt DATETIME DEFAULT GETDATE()
+        FullName NVARCHAR(100) NULL,
+        Birthday DATE NULL,
     );
 END
 GO
@@ -25,10 +26,10 @@ GO
 -- Chèn user mặc định nếu chưa có
 IF NOT EXISTS (SELECT * FROM Users WHERE Username = N'Huy')
 BEGIN
-    INSERT INTO Users (Username, Password, Email)
+    INSERT INTO Users (Username, Password, Email, FullName, Birthday)
     VALUES (N'Huy', 
             N'8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 
-            N'1234@gmail.com');
+            N'1234@gmail.com', 'Đinh Võ Gia Huy' ,'29/11/2006');
 END
 GO
 
