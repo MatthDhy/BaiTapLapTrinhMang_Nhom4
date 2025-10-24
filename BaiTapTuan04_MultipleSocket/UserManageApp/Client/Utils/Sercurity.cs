@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client
+namespace Client.Utils
 {
-    internal class Utils
+    internal class Sercurity
     {
     }
 }
