@@ -29,28 +29,50 @@ Client có 3 form: LoginForm, RegisterForm, MainForm.
 ## 📂 Cấu trúc thư mục
 
 UserManageApp/
+
 ├─ Client/       (WinForms – giữ phần code cũ của UserLoginApp)
+
 │  ├─ Forms/		→ thêm một số đoạn code giao tiếp với server từ TcpClientHelper
+
 │  │   ├─ LoginForm.cs
+
 │  │   ├─ RegisterForm.cs
+
 │  │   └─ MainForm.cs
+
 │  ├─ Networking/
+
 │  │   └─ TcpClientHelper.cs 
+
 │  ├─ Utils/
+
 │  │   └─ Security.cs → tái sử dụng được, sửa tí cho hợp với database mới
+
 │  └─ Program.cs
+
 │
 └─ Server/       (WinForms – hiển thị log, xử lý TCP và DB)
+
    ├─ Forms/			→ Phần code mới cần giải quyết
+   
    │   └─ FormServer.cs
+   
    ├─ Core/
+   
    │   ├─ ServerCore.cs
+   
    │   └─ DbHelper.cs
+   
    ├─ Models/
+   
    │   ├─ User.cs
+   
    │   ├─ RequestMessage.cs
+   
    │   └─ ResponseMessage.cs
+   
    └─ Program.cs
+   
 __________
 
 ## Phân công việc
@@ -105,6 +127,10 @@ ____________
  **Luồng hoạt động **
  
 +-------------+         TCP JSON          +-------------+         SQL Query         +-------------------+
+
 |  Client App | ────────────────────────▶ | Server App  | ───────────────────────▶ |   SQL Server DB   |
+
 | (WinForms)  | ◀──────────────────────── | (WinForms)  | ◀─────────────────────── |  (Users table)    |
+
 +-------------+                          +-------------+                           +-------------------+
+
