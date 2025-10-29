@@ -10,3 +10,15 @@ D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginA
 D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.csproj.CoreCompileInputs.cache
 D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.exe
 D:\HK3\LTMang\BaiTapLapTrinhMang_Nhom4\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.pdb
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\bin\Debug\UserLoginApp.exe.config
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\bin\Debug\UserLoginApp.exe
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\bin\Debug\UserLoginApp.pdb
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.csproj.AssemblyReference.cache
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.Forms.LoginForm.resources
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.Forms.MainForm.resources
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.Forms.RegisterForm.resources
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.Properties.Resources.resources
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.csproj.GenerateResource.cache
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.csproj.CoreCompileInputs.cache
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.exe
+C:\Users\meme1\source\repos\VLLUONDAUCATMOI\BaiTapTuan03_Register,Login,DB\UserLoginApp\UserLoginApp\obj\Debug\UserLoginApp.pdb

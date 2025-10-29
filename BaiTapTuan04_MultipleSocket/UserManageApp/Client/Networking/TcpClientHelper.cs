@@ -3,7 +3,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client
+namespace UserManageApp.Networking
 {
     public class TcpClientHelper : IDisposable
     {

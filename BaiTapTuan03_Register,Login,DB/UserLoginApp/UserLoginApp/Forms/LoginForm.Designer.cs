@@ -28,6 +28,7 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(229, 30);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -76,6 +77,7 @@
             // lnkRegister
             // 
             this.lnkRegister.AutoSize = true;
+            this.lnkRegister.BackColor = System.Drawing.Color.Transparent;
             this.lnkRegister.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline);
             this.lnkRegister.LinkColor = System.Drawing.Color.Black;
             this.lnkRegister.Location = new System.Drawing.Point(294, 336);
@@ -90,6 +92,7 @@
             // lnkForgot
             // 
             this.lnkForgot.AutoSize = true;
+            this.lnkForgot.BackColor = System.Drawing.Color.Transparent;
             this.lnkForgot.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline);
             this.lnkForgot.LinkColor = System.Drawing.Color.Black;
             this.lnkForgot.Location = new System.Drawing.Point(386, 336);

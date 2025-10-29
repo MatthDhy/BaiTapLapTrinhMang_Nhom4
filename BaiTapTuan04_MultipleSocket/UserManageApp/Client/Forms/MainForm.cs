@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Client;
+using System;
 using System.Text.Json;
 using System.Windows.Forms;
-using Client.Forms;
+using UserManageApp.Forms;
+using UserManageApp.Networking;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Client
@@ -82,3 +84,5 @@ namespace Client
         }
     }
 }
+
+
