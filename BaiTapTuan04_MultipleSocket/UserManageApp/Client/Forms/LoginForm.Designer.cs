@@ -1,15 +1,29 @@
-﻿namespace UserManageApp.Forms
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace Client.Forms
 {
     partial class LoginForm
     {
         private System.ComponentModel.IContainer components = null;
 
+        private Panel panelShell;
+        private Panel panelLeft;
+        private Panel panelRight;
+        private Label lblTagline;
+
+        private Label lblTitle;
+        private TextBox txtUsername;
+        private TextBox txtPassword;
+        private Button btnTogglePwd;
+        private CheckBox chkRemember;
+        private Button btnLogin;
+        private Button btnRegister;
+        private Label lblError;
+
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && components != null) components.Dispose();
             base.Dispose(disposing);
         }
 
@@ -122,6 +136,7 @@
 
         }
 
+        }
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
