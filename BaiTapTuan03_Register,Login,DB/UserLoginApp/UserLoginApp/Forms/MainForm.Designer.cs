@@ -42,7 +42,7 @@ namespace UserLoginApp.Forms
             // 
             // grUserInfo
             // 
-            this.grUserInfo.BackColor = System.Drawing.Color.Ivory;
+            this.grUserInfo.BackColor = System.Drawing.Color.Transparent;
             this.grUserInfo.Controls.Add(this.lbEmail);
             this.grUserInfo.Controls.Add(this.lbUsername);
             this.grUserInfo.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -72,7 +72,7 @@ namespace UserLoginApp.Forms
             // 
             // lbWelcome
             // 
-            this.lbWelcome.BackColor = System.Drawing.Color.Ivory;
+            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
             this.lbWelcome.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbWelcome.Location = new System.Drawing.Point(20, 20);
             this.lbWelcome.Name = "lbWelcome";
