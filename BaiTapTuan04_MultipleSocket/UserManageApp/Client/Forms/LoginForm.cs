@@ -1,9 +1,13 @@
-﻿using Client;
+﻿// LoginForm.cs
+using Client;
 using System;
+using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UserManageApp.Models;
 using UserManageApp.Networking;
 using UserManageApp.Utils;
 
@@ -12,7 +16,7 @@ namespace UserManageApp.Forms
     public partial class LoginForm : Form
     {
         private const string SERVER_HOST = "127.0.0.1";
-        private const int SERVER_PORT = 9000;
+        private const int SERVER_PORT = 8080;
 
         private TcpClientHelper _tcpClient;
 
@@ -22,7 +26,7 @@ namespace UserManageApp.Forms
 
             _tcpClient = new TcpClientHelper();
 
-            // nền gradient nhẹ (OK với Designer)
+            // nền gradient nhẹ
             this.Paint += LoginForm_Paint;
 
             // kéo form không viền
@@ -31,14 +35,7 @@ namespace UserManageApp.Forms
                 if (e.Button == MouseButtons.Left) NativeDrag(this.Handle);
             };
 
-            // placeholder thủ công cho .NET Framework
-            SetupPlaceholder(txtUsername, (string)txtUsername.Tag, false);
-            SetupPlaceholder(txtPassword, (string)txtPassword.Tag, true);
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            this.AcceptButton = btnLogin;
+            // Placeholder: khởi tạo ban đầu sẽ được cập nhật ở Load
         }
 
         private void LoginForm_Paint(object sender, PaintEventArgs e)
@@ -53,6 +50,39 @@ namespace UserManageApp.Forms
             }
         }
 
+        // --- Single Load handler (async)
+        private async void LoginForm_Load(object sender, EventArgs e)
+        {
+            // Accept button
+            this.AcceptButton = btnLogin;
+
+            // Setup placeholders (use Tag from Designer)
+            SetupPlaceholder(txtUsername, txtUsername.Tag?.ToString() ?? "Tên đăng nhập", false);
+            SetupPlaceholder(txtPassword, txtPassword.Tag?.ToString() ?? "Mật khẩu", true);
+
+            // Wire focus handlers for more UX (in case)
+            txtUsername.Enter += TxtUsername_Enter;
+            txtUsername.Leave += TxtUsername_Leave;
+            txtPassword.Enter += TxtPassword_Enter;
+            txtPassword.Leave += TxtPassword_Leave;
+
+            this.ActiveControl = lblTitle;
+
+            // Optionally connect to server in background (best effort)
+            try
+            {
+                if (_tcpClient == null) _tcpClient = new TcpClientHelper();
+                await _tcpClient.ConnectAsync(SERVER_HOST, SERVER_PORT);
+                Console.WriteLine("✅ Đã kết nối server.");
+            }
+            catch
+            {
+                // Không crash UI nếu không kết nối được, chỉ show message mặc định vào lblError
+                lblError.Text = "Không kết nối được server (chỉ thử kết nối khi mở).";
+            }
+        }
+
+        // --- Unified login click (async)
         private async void btnLogin_Click(object sender, EventArgs e)
         {
             lblError.Text = string.Empty;
@@ -66,6 +96,7 @@ namespace UserManageApp.Forms
                 return;
             }
 
+            // Tạo JSON request (server mà bạn dùng trước đó)
             var reqObj = new
             {
                 Action = "LOGIN",
@@ -74,14 +105,16 @@ namespace UserManageApp.Forms
 
             try
             {
+                if (_tcpClient == null) _tcpClient = new TcpClientHelper();
                 await _tcpClient.ConnectAsync(SERVER_HOST, SERVER_PORT);
 
                 string reqJson = JsonSerializer.Serialize(reqObj);
                 string respJson = await _tcpClient.SendAsync(reqJson);
 
+                // parse response
                 var resp = JsonDocument.Parse(respJson).RootElement;
                 bool success = resp.GetProperty("Success").GetBoolean();
-                string message = resp.GetProperty("Message").GetString();
+                string message = resp.TryGetProperty("Message", out var m) ? m.GetString() : "";
 
                 if (!success)
                 {
@@ -93,13 +126,14 @@ namespace UserManageApp.Forms
                 string token = data.GetProperty("Token").GetString();
                 string userJson = data.GetProperty("User").GetRawText();
 
+                // Gọi Constructor phù hợp với MainForm của bạn
                 var main = new MainForm(token, userJson, _tcpClient);
                 this.Hide();
 
                 main.FormClosed += (s2, e2) =>
                 {
                     try { _tcpClient?.Dispose(); } catch { }
-                    _tcpClient = new TcpClientHelper(); // để đăng nhập lại nếu cần
+                    _tcpClient = new TcpClientHelper();
                     this.Show();
                 };
 
@@ -113,7 +147,10 @@ namespace UserManageApp.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            new RegisterForm().ShowDialog();
+            using (var reg = new RegisterForm())
+            {
+                reg.ShowDialog();
+            }
         }
 
         private void btnTogglePwd_Click(object sender, EventArgs e)
@@ -130,6 +167,8 @@ namespace UserManageApp.Forms
         // ---- Placeholder helpers ----
         private static void SetupPlaceholder(TextBox tb, string placeholder, bool isPassword)
         {
+            if (tb == null) return;
+
             void SetPh()
             {
                 tb.ForeColor = Color.Gray;
@@ -143,7 +182,17 @@ namespace UserManageApp.Forms
                 if (isPassword) tb.UseSystemPasswordChar = true;
             }
 
-            SetPh();
+            // Set initial placeholder only if empty
+            if (string.IsNullOrWhiteSpace(tb.Text))
+            {
+                SetPh();
+            }
+
+            tb.Tag = placeholder;
+
+            tb.GotFocus -= (s, e) => { }; // ensure not double-wired
+            tb.LostFocus -= (s, e) => { };
+
             tb.GotFocus += (s, e) =>
             {
                 if (tb.ForeColor == Color.Gray && tb.Text == placeholder) UnsetPh();
@@ -155,103 +204,15 @@ namespace UserManageApp.Forms
         }
 
         private static string GetValue(TextBox tb)
-            => tb.ForeColor == Color.Gray ? string.Empty : tb.Text.Trim();
+            => tb == null ? string.Empty : (tb.ForeColor == Color.Gray ? string.Empty : tb.Text.Trim());
 
-        // ---- Kéo form không viền ----
-        [DllImport("user32.dll")] private static extern bool ReleaseCapture();
-        [DllImport("user32.dll")] private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        private static void NativeDrag(IntPtr handle)
-        {
-            const int WM_NCLBUTTONDOWN = 0xA1;
-            const int HTCAPTION = 0x2;
-            ReleaseCapture();
-            SendMessage(handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-        }
-
-        private async void LoginForm_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                _tcpClient = new TcpClientHelper();
-                await _tcpClient.ConnectAsync("127.0.0.1", 8080); // ⚙️ Thay bằng IP/Port server thật
-                Console.WriteLine("✅ Đã kết nối server.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Không thể kết nối tới server: " + ex.Message,
-                    "Kết nối thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            // Cài đặt placeholder
-            txtUsername.Text = "Tên đăng nhập";
-            txtUsername.ForeColor = Color.Gray;
-
-            txtPassword.Text = "Mật khẩu";
-            txtPassword.ForeColor = Color.Gray;
-            txtPassword.UseSystemPasswordChar = false;
-
-            txtUsername.Enter += TxtUsername_Enter;
-            txtUsername.Leave += TxtUsername_Leave;
-            txtPassword.Enter += TxtPassword_Enter;
-            txtPassword.Leave += TxtPassword_Leave;
-            this.ActiveControl = lblTitle;
-        }
-
-        private async void btnLogin_Click(object sender, EventArgs e)
-        {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text;
-
-            if (string.IsNullOrEmpty(username) || username == "Tên đăng nhập" ||
-                string.IsNullOrEmpty(password) || password == "Mật khẩu")
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!",
-                    "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Mã hóa mật khẩu trước khi gửi
-            string hashedPassword = Security.HashPassword(password);
-            string message = $"LOGIN|{username}|{hashedPassword}";
-
-            try
-            {
-                string response = await _tcpClient.SendAsync(message);
-
-                if (response == "OK")
-                {
-                    MessageBox.Show("Đăng nhập thành công!", "Thành công",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    MainForm main = new MainForm();
-                    main.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!",
-                        "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi gửi yêu cầu đến server: " + ex.Message,
-                    "Lỗi mạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            RegisterForm reg = new RegisterForm();
-            reg.Show();
-        }
-
+        // ---- Textbox enter/leave (for Designer placeholders fallback) ----
         private void TxtUsername_Enter(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "Tên đăng nhập")
+            if (txtUsername.Text == (string)txtUsername.Tag)
             {
                 txtUsername.Text = "";
-                txtUsername.ForeColor = Color.Black;
+                txtUsername.ForeColor = Color.White;
             }
         }
 
@@ -259,17 +220,17 @@ namespace UserManageApp.Forms
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
-                txtUsername.Text = "Tên đăng nhập";
+                txtUsername.Text = (string)txtUsername.Tag;
                 txtUsername.ForeColor = Color.Gray;
             }
         }
 
         private void TxtPassword_Enter(object sender, EventArgs e)
         {
-            if (txtPassword.Text == "Mật khẩu")
+            if (txtPassword.Text == (string)txtPassword.Tag)
             {
                 txtPassword.Text = "";
-                txtPassword.ForeColor = Color.Black;
+                txtPassword.ForeColor = Color.White;
                 txtPassword.UseSystemPasswordChar = true;
             }
         }
@@ -279,9 +240,22 @@ namespace UserManageApp.Forms
             if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 txtPassword.UseSystemPasswordChar = false;
-                txtPassword.Text = "Mật khẩu";
+                txtPassword.Text = (string)txtPassword.Tag;
                 txtPassword.ForeColor = Color.Gray;
             }
+        }
+
+        // ---- Kéo form không viền ----
+        [DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        private static void NativeDrag(IntPtr handle)
+        {
+            const int WM_NCLBUTTONDOWN = 0xA1;
+            const int HTCAPTION = 0x2;
+            ReleaseCapture();
+            SendMessage(handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

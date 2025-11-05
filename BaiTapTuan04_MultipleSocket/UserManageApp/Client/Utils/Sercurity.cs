@@ -5,20 +5,20 @@ namespace UserManageApp.Utils
 {
     public static class Security
     {
-            public static string HashPassword(string password)
+        public static string Sha256Hex(string input)
+        {
+            using (SHA256 sha256 = SHA256.Create())
             {
-                using (SHA256 sha256 = SHA256.Create())
-                {
-                    byte[] bytes = Encoding.UTF8.GetBytes(password);
-                    byte[] hash = sha256.ComputeHash(bytes);
+                byte[] bytes = Encoding.UTF8.GetBytes(input);
+                byte[] hash = sha256.ComputeHash(bytes);
 
-                    StringBuilder sb = new StringBuilder();
-                    foreach (var b in hash)
-                    {
-                        sb.Append(b.ToString("x2"));
-                    }
-                    return sb.ToString();
+                StringBuilder sb = new StringBuilder();
+                foreach (var b in hash)
+                {
+                    sb.Append(b.ToString("x2"));
                 }
+                return sb.ToString();
             }
         }
     }
+}

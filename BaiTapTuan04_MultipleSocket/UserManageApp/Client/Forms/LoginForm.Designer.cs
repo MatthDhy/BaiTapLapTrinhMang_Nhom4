@@ -1,29 +1,31 @@
-﻿using System.Drawing;
+﻿// LoginForm.Designer.cs
+using System;
+using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
-namespace Client.Forms
+namespace UserManageApp.Forms
 {
     partial class LoginForm
     {
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         private Panel panelShell;
-        private Panel panelLeft;
-        private Panel panelRight;
-        private Label lblTagline;
-
         private Label lblTitle;
         private TextBox txtUsername;
         private TextBox txtPassword;
-        private Button btnTogglePwd;
-        private CheckBox chkRemember;
         private Button btnLogin;
-        private Button btnRegister;
+        private LinkLabel lnkRegister;
+        private LinkLabel lnkForgot;
         private Label lblError;
+        private Button btnTogglePwd;
 
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && components != null) components.Dispose();
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
@@ -31,119 +33,137 @@ namespace Client.Forms
 
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.lnkRegister = new System.Windows.Forms.LinkLabel();
-            this.lnkForgot = new System.Windows.Forms.LinkLabel();
-            this.SuspendLayout();
+            this.components = new Container();
+            this.lblTitle = new Label();
+            this.txtUsername = new TextBox();
+            this.txtPassword = new TextBox();
+            this.btnLogin = new Button();
+            this.lnkRegister = new LinkLabel();
+            this.lnkForgot = new LinkLabel();
+            this.lblError = new Label();
+            this.btnTogglePwd = new Button();
+
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(229, 30);
+            this.lblTitle.BackColor = Color.Transparent;
+            this.lblTitle.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new Point(229, 30);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(342, 81);
+            this.lblTitle.Size = new Size(342, 81);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Đăng nhập";
             // 
             // txtUsername
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.txtUsername.Location = new System.Drawing.Point(165, 129);
-            this.txtUsername.Multiline = true;
+            this.txtUsername.Font = new Font("Segoe UI", 14F);
+            this.txtUsername.Location = new Point(165, 129);
+            this.txtUsername.Multiline = false;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(472, 43);
+            this.txtUsername.Size = new Size(420, 39);
             this.txtUsername.TabIndex = 1;
-            this.txtUsername.Text = "Tên đăng nhập";
+            this.txtUsername.Tag = "Tên đăng nhập";
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.txtPassword.Location = new System.Drawing.Point(165, 190);
+            this.txtPassword.Font = new Font("Segoe UI", 14F);
+            this.txtPassword.Location = new Point(165, 180);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(472, 39);
+            this.txtPassword.Size = new Size(420, 39);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "Mật khẩu";
+            this.txtPassword.Tag = "Mật khẩu";
+            // 
+            // btnTogglePwd
+            // 
+            this.btnTogglePwd.Font = new Font("Segoe UI", 10F);
+            this.btnTogglePwd.Location = new Point(595, 180);
+            this.btnTogglePwd.Name = "btnTogglePwd";
+            this.btnTogglePwd.Size = new Size(42, 39);
+            this.btnTogglePwd.TabIndex = 7;
+            this.btnTogglePwd.Text = "👁";
+            this.btnTogglePwd.UseVisualStyleBackColor = true;
+            this.btnTogglePwd.Click += new EventHandler(this.btnTogglePwd_Click);
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(165, 265);
+            this.btnLogin.BackColor = Color.RoyalBlue;
+            this.btnLogin.FlatStyle = FlatStyle.Flat;
+            this.btnLogin.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            this.btnLogin.ForeColor = Color.White;
+            this.btnLogin.Location = new Point(165, 240);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(471, 58);
+            this.btnLogin.Size = new Size(472, 58);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new EventHandler(this.btnLogin_Click);
             // 
             // lnkRegister
             // 
             this.lnkRegister.AutoSize = true;
-            this.lnkRegister.BackColor = System.Drawing.Color.Transparent;
-            this.lnkRegister.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline);
-            this.lnkRegister.LinkColor = System.Drawing.Color.Black;
-            this.lnkRegister.Location = new System.Drawing.Point(294, 336);
+            this.lnkRegister.BackColor = Color.Transparent;
+            this.lnkRegister.Font = new Font("Segoe UI", 9F, FontStyle.Underline);
+            this.lnkRegister.LinkColor = Color.Black;
+            this.lnkRegister.Location = new Point(294, 313);
             this.lnkRegister.Name = "lnkRegister";
-            this.lnkRegister.Size = new System.Drawing.Size(63, 20);
+            this.lnkRegister.Size = new Size(63, 20);
             this.lnkRegister.TabIndex = 4;
             this.lnkRegister.TabStop = true;
             this.lnkRegister.Text = "Đăng ký";
-            this.lnkRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.lnkRegister.Click += new EventHandler(this.btnRegister_Click);
             // 
             // lnkForgot
             // 
             this.lnkForgot.AutoSize = true;
-            this.lnkForgot.BackColor = System.Drawing.Color.Transparent;
-            this.lnkForgot.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline);
-            this.lnkForgot.LinkColor = System.Drawing.Color.Black;
-            this.lnkForgot.Location = new System.Drawing.Point(386, 336);
+            this.lnkForgot.BackColor = Color.Transparent;
+            this.lnkForgot.Font = new Font("Segoe UI", 9F, FontStyle.Underline);
+            this.lnkForgot.LinkColor = Color.Black;
+            this.lnkForgot.Location = new Point(386, 313);
             this.lnkForgot.Name = "lnkForgot";
-            this.lnkForgot.Size = new System.Drawing.Size(109, 20);
+            this.lnkForgot.Size = new Size(109, 20);
             this.lnkForgot.TabIndex = 5;
             this.lnkForgot.TabStop = true;
             this.lnkForgot.Text = "Quên mật khẩu";
             // 
-            // LoginForm
+            // lblError
+            // 
+            this.lblError.AutoSize = false;
+            this.lblError.BackColor = Color.Transparent;
+            this.lblError.Font = new Font("Segoe UI", 9F);
+            this.lblError.ForeColor = Color.Red;
+            this.lblError.Location = new Point(165, 205);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new Size(472, 25);
+            this.lblError.TabIndex = 6;
+            this.lblError.Text = "";
+            // 
+            // LoginForm (form)
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.BackgroundImage = global::Client.Properties.Resources.czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvdjExNTUtYi0wMTEteC5qcGc;
-            this.ClientSize = new System.Drawing.Size(804, 440);
+            this.AutoScaleDimensions = new SizeF(8F, 16F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.BackColor = Color.LightGray;
+            this.ClientSize = new Size(804, 440);
+            this.Controls.Add(this.btnTogglePwd);
             this.Controls.Add(this.lnkForgot);
             this.Controls.Add(this.lnkRegister);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Load += new EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
-        }
         #endregion
-
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.LinkLabel lnkRegister;
-        private System.Windows.Forms.LinkLabel lnkForgot;
     }
 }

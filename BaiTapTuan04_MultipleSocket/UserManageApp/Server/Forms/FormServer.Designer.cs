@@ -54,7 +54,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Running on port 9000";
+            this.label2.Text = "Running on port 8080";
             // 
             // btnStart
             // 

@@ -11,7 +11,7 @@ namespace Client
     public partial class MainForm : Form
     {
         private const string ServerIP = "127.0.0.1"; // đổi sang IP máy khác khi cần
-        private const int ServerPort = 9000;
+        private const int ServerPort = 8080;
 
         private readonly string _token;
         private readonly string _userJson;

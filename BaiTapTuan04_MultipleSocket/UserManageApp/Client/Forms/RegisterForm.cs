@@ -59,7 +59,7 @@ namespace UserManageApp.Forms
                 await _client.ConnectAsync("127.0.0.1", 8080);
 
                 // Hash mật khẩu trước khi gửi
-                string hashedPassword = Security.HashPassword(password);
+                string hashedPassword = Security.Sha256Hex(password);
 
                 // Tạo message theo định dạng mà server của bạn hiểu
                 string message = $"REGISTER|{username}|{hashedPassword}|{email}";
@@ -89,9 +89,6 @@ namespace UserManageApp.Forms
             base.OnFormClosed(e);
         }
 
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-            // có thể thêm auto-check username trống tại đây nếu muốn
-        }
+        
     }
 }

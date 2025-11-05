@@ -33,7 +33,7 @@ namespace Server
         {
             if (server == null)
             {
-                int port = 9000;
+                int port = 8080;
                 string connStr = "Data Source=.;Initial Catalog=UserDB;Integrated Security=True"; // hoặc chuỗi kết nối thật
 
                 server = new ServerCore(port, connStr);
